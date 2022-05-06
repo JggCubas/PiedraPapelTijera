@@ -26,7 +26,7 @@ content{
 }
 .divisor{
   max-width: 0px;
-  height: 100%;
+  height: 70%;
   border: 0.1em solid black;
   position: absolute;
   padding: 0;;
@@ -39,4 +39,21 @@ content{
   margin-top: -11%;
   border: ;
   background: white;
+}
+
+.fade:not(.show){
+  transition: all linear 2s;
+  opacity: 1;
+}
+.fade {
+    transition: all linear 2s;
+    opacity: 1;
+}
+
+.fade.ng-hide {
+    opacity: 0;
+}
+.ng-hide {
+    opacity: 0;
+    transition: 1s;
 }

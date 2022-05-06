@@ -12,10 +12,11 @@
       @import url("estilos/fontawesome/css/all.css");
       @import url("estilos/estilo.css");
   </style>
-  <script language="javascript" src="funciones.js"></script>
+	<script language="javascript" src="js/angular.js"></script>
+  <script language="javascript" src="js/funciones.js"></script>
   </head>
-  <body>
-    <div class="container">
+  <body ng-app="juego">
+    <div class="container" ng-controller="ppt">
     <div class="row justify-content-center">
       <div class=" col-12 ">
         <div class="row">
@@ -25,7 +26,7 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-4 text-center">
-            <p class="fs-1" style="margin:0">0 - 0</p>
+            <p class="fs-1" style="margin:0">{{marcador.yo}} - {{marcador.pc}}</p>
             <p class="fs-5">marcador</p>
           </div>
         </div>
@@ -43,36 +44,30 @@
               </div>
               <div class="row justify-content-center">
                 <div class="col-6 text-center d-flex flex-column">
-                  <div class="item"><i class="fa-solid fa-hand mb-3"></i></div>
-                  <div class="item"><i class="fa-solid fa-hand-fist mb-3"></i></div>
-                  <div class="item"><i class="fa-solid fa-hand-peace mb-3"></i></div>
+									<div class="item" ng-repeat="x in items"><a ng-click="selecionar(x)"><i class="fa-solid {{x.item}} mb-3"></i></a></div>
                 </div>
                 <div class="col-6 text-center d-flex flex-column">
-                    <div class="item"><i class="fa-solid fa-hand mb-3"></i></div>
-                    <div class="item"><i class="fa-solid fa-hand-fist mb-3"></i></div>
-                    <div class="item"><i class="fa-solid fa-hand-peace mb-3"></i></div>
+										<div class="item" ng-repeat="x in items"><i class="fa-solid {{x.item}} mb-3"></i></div>
                 </div>
               </div>
             </div>
             <div class="divisor"></div>
-            <div class="box-seleccion">
+            <div class="box-seleccion fade" ng-show="displayResult">
               <div class="row">
 
               <div class="col-6 text-center">
-                <div class="item"><i class="fa-solid fa-hand mb-3"></i></div>
+                <div class="item"><i class="fa-solid {{select_yo}} mb-3"></i></div>
               </div>
               <div class="col-6 text-center">
-                <div class="item"><i class="fa-solid fa-hand mb-3"></i></div>
+                <div class="item"><i class="fa-solid {{select_pc}} mb-3"></i></div>
               </div>
               <div class="col-12 text-center">
-                Perdiste
+                {{labelResult}}
               </div>
             </div>
             </div>
           </div>
-
       </div>
-
     </div>
     </div>
   </body>
