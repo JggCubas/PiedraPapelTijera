@@ -1,0 +1,42 @@
+
+html {
+  box-sizing: border-box;
+  font-family: Lato;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+content{
+  width: 100%;
+  padding: 5%;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+.divisor{
+  max-width: 0px;
+  height: 100%;
+  border: 0.1em solid black;
+  position: absolute;
+  padding: 0;;
+}
+.item{font-size: 30px;}
+.box-seleccion{
+  position: relative;
+  width: 25%;
+  height: 25%;
+  margin-top: -11%;
+  border: ;
+  background: white;
+}
