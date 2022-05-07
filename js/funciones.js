@@ -1,37 +1,40 @@
 let ngApp = angular.module('juego', []);
 ngApp.controller('ppt', function ($scope,$timeout) {
-  $scope.items = [{"valor":1,"item":"fa-hand"},{"valor":2,"item":"fa-hand-fist"},{"valor":3,"item":"fa-hand-peace"}];
-                  //papel, piedra, tijera
-  $scope.reglas = [{"legana":2},{"legana":3},{"legana":1}];
+  $scope.items = [{"valor":"papel","item":"fa-hand","pierde":"tijera"},{"valor":"piedra","item":"fa-hand-fist","pierde":"papel"},{"valor":"tijera","item":"fa-hand-peace","pierde":"piedra"}];
   $scope.select_yo = "";
   $scope.select_pc = "";
-  $scope.valYo = 0;
-  $scope.valPc = 0;
   $scope.marcador = {"yo":0,"pc":0};
   $scope.labelResult = "";
   $scope.displayResult = false;
+  $scope.random = 0;
+  let jugando = false;
   $scope.selecionar = function (item) {
-     $scope.valYo = item.valor;
-     $scope.valPc = getRandomInt($scope.valPc);
-     $scope.select_yo = $scope.items[$scope.valYo - 1].item;
-     $scope.select_pc = $scope.items[$scope.valPc - 1].item;
-     if($scope.valPc == $scope.valYo){
+    if(jugando) return;
+     jugando = true;
+     $scope.random = getRandomInt($scope.random);
+     let valPc = $scope.items[$scope.random - 1];
+
+     $scope.select_yo = item.item;
+     $scope.select_pc = valPc.item;
+
+     if(valPc.valor == item.valor){
        $scope.labelResult = 'Empate';
-     }else if($scope.valPc == $scope.reglas[$scope.valYo - 1].legana){
-       $scope.labelResult = 'Ganaste';
-       $scope.marcador.yo+=1;
-     }else{
+     }else if(valPc.valor == item.pierde){
        $scope.labelResult = 'Perdiste';
        $scope.marcador.pc+=1;
+     }else{
+       $scope.labelResult = 'Ganaste';
+       $scope.marcador.yo+=1;
      }
      $scope.displayResult = true;
      $timeout(function () {
       $scope.displayResult = false;
+      $scope.select_yo = "";
+      $scope.select_pc = "";
+      jugando = false;
     }, 900);
-
   };
 });
-
 function getRandomInt(x) {
   let sw = 0;
   let valor = 0;

@@ -35,33 +35,36 @@
 
               <div class="row justify-content-center">
                 <div class="col-6 text-center">
-                  <p class="fs-4">Tu</p>
-                  <p class="fs-5">Selecciona una opción.</p>
+                  <p class="text_ppt">Tu</p>
+                  <p class="text_ppt">Selecciona una opción.</p>
                 </div>
                 <div class="col-6 text-center">
-                  <p class="fs-4">Computadora</p>
+                  <p class="text_ppt">Computadora</p>
                 </div>
               </div>
               <div class="row justify-content-center">
                 <div class="col-6 text-center d-flex flex-column">
-									<div class="item" ng-repeat="x in items"><a ng-click="selecionar(x)"><i class="fa-solid {{x.item}} mb-3"></i></a></div>
+									<div class="item yo" ng-repeat="x in items"><a ng-click="selecionar(x)">
+										<i class="fa-solid {{x.item}} mb-3" ng-class="{'active': x.item == select_yo }"></i>
+									</a></div>
                 </div>
                 <div class="col-6 text-center d-flex flex-column">
-										<div class="item" ng-repeat="x in items"><i class="fa-solid {{x.item}} mb-3"></i></div>
+										<div class="item pc" ng-repeat="x in items">
+											<i class="fa-solid {{x.item}} mb-3" ng-class="{'active': x.item == select_pc }"></i>
+										</div>
                 </div>
               </div>
             </div>
             <div class="divisor"></div>
             <div class="box-seleccion fade" ng-show="displayResult">
               <div class="row">
-
               <div class="col-6 text-center">
                 <div class="item"><i class="fa-solid {{select_yo}} mb-3"></i></div>
               </div>
               <div class="col-6 text-center">
                 <div class="item"><i class="fa-solid {{select_pc}} mb-3"></i></div>
               </div>
-              <div class="col-12 text-center">
+              <div class="col-12 text-center labelResult">
                 {{labelResult}}
               </div>
             </div>

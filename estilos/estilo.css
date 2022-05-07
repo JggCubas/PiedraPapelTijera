@@ -31,22 +31,22 @@ content{
   position: absolute;
   padding: 0;;
 }
-.item{font-size: 30px;}
+.item{font-size: 40px;}
 .box-seleccion{
-  position: relative;
+  position: absolute;
   width: 25%;
-  height: 25%;
-  margin-top: -11%;
+  height: auto;
+  margin-top: 10%;
   border: ;
   background: white;
 }
 
 .fade:not(.show){
-  transition: all linear 2s;
+
   opacity: 1;
 }
 .fade {
-    transition: all linear 2s;
+
     opacity: 1;
 }
 
@@ -55,5 +55,49 @@ content{
 }
 .ng-hide {
     opacity: 0;
-    transition: 1s;
+
+}
+.active {
+   color: blue;
+}
+
+.box-seleccion .item  i{
+  font-size: 60px;
+}
+.box-seleccion .labelResult{
+  font-size: 30px;
+}
+.text_ppt{
+  font-size: 18px;
+}
+@media (max-width: 600px) and (orientation: landscape) {
+  .box-seleccion{
+
+    margin-top: 17%!important;
+
+  }
+}
+@media (max-width: 600px) {
+  .text_ppt{
+    font-size: 13px;
+  }
+  .item{font-size: 20px;}
+  .yo{
+    text-align: left;
+    padding-left: 15px;
+  }
+  .pc{
+    text-align: right;
+    padding-right: 15px;
+  }
+  .box-seleccion{
+    position: absolute;
+    width: 60%;
+    height: auto;
+    margin-top: 30%;
+    background: white;
+  }
+  .box-seleccion .item  i{
+    font-size: 35px;
+  }
 }
